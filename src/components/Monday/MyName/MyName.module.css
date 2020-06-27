@@ -1,0 +1,10 @@
+.myName {
+    text-align: center;
+    width: 350px;
+    height: 33px;
+    margin: 5px;
+    overflow: hidden;
+    font-size: 20px;
+    color: blue;
+    background: linear-gradient(to top left, powderblue, pink);
+}

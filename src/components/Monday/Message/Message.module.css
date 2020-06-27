@@ -1,0 +1,47 @@
+.message {
+    margin: 5px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.commentBubble {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+    padding: 5px;
+    margin: 5px 5px 0 5px;
+    min-height: 50px;
+    width: 200px;
+    background:#e4ecf2;
+    -moz-border-radius: 12px;
+    -webkit-border-radius: 12px;
+    border-radius: 12px;
+}
+
+.message img {
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+}
+
+.userName {
+    color: #0072f0;
+}
+
+.helloVisitor {
+    text-align: left;
+    width: 200px;
+    font-size: 15px;
+    overflow-wrap: break-word;
+}
+
+.time {
+    width: 200px;
+    opacity: 0.5;
+    text-align: right;
+}
