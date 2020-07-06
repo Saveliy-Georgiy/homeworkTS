@@ -4,6 +4,7 @@ import Message from "./Message/Message";
 import styles from './Monday.module.css'
 
 function Monday() {
+
 function zeroFirstFormat (value: any) {
     if (value < 10) {
         value = "0" + value;

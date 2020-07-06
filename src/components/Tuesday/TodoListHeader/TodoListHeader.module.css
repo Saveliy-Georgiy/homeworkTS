@@ -1,0 +1,38 @@
+.TodoListHeader {
+
+}
+
+.todoListHeaderTitle {
+    font-size: 20px;
+    text-align: center;
+}
+
+.todoListNewTaskForm {
+
+}
+
+.todoList > div {
+    padding: 10px;
+}
+
+.todoListTask {
+
+}
+
+.error {
+    border-color: red;
+}
+
+.inputText {
+    margin: 5px;
+}
+/*
+
+.filter-active {
+ background-color: blue;
+}
+
+
+.todoList-task.done {
+ opacity: 0.5;
+}*/

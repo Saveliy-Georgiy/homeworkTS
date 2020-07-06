@@ -1,0 +1,51 @@
+.todoListTask {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: start;
+    width: 320px;
+}
+
+.todoListTask.done {
+    opacity: 0.5;
+}
+
+.taskWrap {
+    display: flex;
+    flex-direction: row;
+}
+
+.wordWrap {
+    padding-bottom: 4px;
+    word-break: break-word;
+}
+
+.selector {
+    font-size: 15px;
+    margin: 5px;
+}
+
+.deleteButton {
+    margin: 5px 5px 5px 0;
+    height: 23px;
+}
+
+.taskTime {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    align-content: flex-start;
+    padding: 5px;
+    margin: 5px 5px 0 5px;
+    min-height: 50px;
+    width: 230px;
+    background: #e4ecf2;
+    -moz-border-radius: 12px;
+    -webkit-border-radius: 12px;
+    border-radius: 12px;
+}
+
+.displayBlockNone {
+    display: none;
+}
