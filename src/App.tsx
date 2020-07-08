@@ -5,7 +5,7 @@ import {HashRouter, Route} from "react-router-dom";
 import Tuesday from "./components/Tuesday/Tuesday";
 import Navbar from "./components/Navbar/Navbar";
 
-function App() {
+const App = () => {
 
     let [daysOfWeek, setDayOfWeek] = useState([
             {title: "monday", link: "/monday", style: "styles.activeLink"},
