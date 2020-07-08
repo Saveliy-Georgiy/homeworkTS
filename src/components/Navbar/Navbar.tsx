@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {ChangeEvent, useState} from 'react';
 import styles from "./Navbar.module.css";
 import Navlink from "./Navlink/NavLink";
 
@@ -16,12 +16,13 @@ function Navbar(props: PropsType) {
 
     let [activeLink, setActiveLink] = useState("")
 
-    function activateLink (e: any) {
+    function activateLink (e:any) {
         setActiveLink (e.currentTarget.textContent)
     }
 
-        let NavLinks = props.daysOfWeek.map((dayOfWeek) => {
+        let NavLinks = props.daysOfWeek.map((dayOfWeek, key) => {
             return (<Navlink
+                key={key}
                 dayOfWeek={dayOfWeek}
                 onClick={activateLink}
             />);

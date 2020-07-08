@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {ChangeEvent} from 'react';
 import styles from './NavLink.module.css';
 import {NavLink} from "react-router-dom";
 import {dayOfWeekType} from "../Navbar";

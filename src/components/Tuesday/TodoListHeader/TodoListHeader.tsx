@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {ChangeEvent, KeyboardEvent, useState} from 'react';
 import styles from "./TodoListHeader.module.css";
 
 type PropsType = {
@@ -21,7 +21,7 @@ function TodoListHeader(props: PropsType) {
         }
     };*/
 
-    function onAddTaskClick () {
+    const onAddTaskClick = () => {
         let newTitle = title;
         title = "";
         props.addTask(newTitle);
@@ -30,7 +30,11 @@ function TodoListHeader(props: PropsType) {
         setTitle("");
     }
 
-    function onAddTaskKeyPress (e: any) {
+    const onChangeHandler = (e:ChangeEvent<HTMLInputElement>) => {
+        setTitle(e.currentTarget.value)
+    }
+
+    const onAddTaskKeyPress = (e:KeyboardEvent<HTMLInputElement>) => {
         if (e.key === "Enter") {
             onAddTaskClick();
         }
@@ -47,6 +51,7 @@ function TodoListHeader(props: PropsType) {
                             placeholder="New task name"
                             // onInput={}
                             className={inputClassname}
+                            onChange={onChangeHandler}
                             onKeyPress={onAddTaskKeyPress}
                             value={title}
                         />

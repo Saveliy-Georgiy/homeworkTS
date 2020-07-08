@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {ChangeEvent, useState} from "react";
 import styles from "./TodoListTask.module.css";
 import {FilterValuesType} from "../../Tuesday";
 import { TaskType } from "../TodoListTasks";
@@ -46,7 +46,6 @@ function TodoListTask (props: PropsType) {
     /*function onPriorityChanged (e:any) {
         props.changePriority(props.task.id, e.currentTarget.value);
     }*/
-
 
         const todoListTask = props.task.isDone === true ? styles.done : "";
        // let blockTime = timeBlock === true ? styles.taskTime : styles.displayBlockNone;
