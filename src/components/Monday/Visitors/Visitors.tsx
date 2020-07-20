@@ -5,6 +5,8 @@ import {v1} from "uuid";
 import AllVisitors from "./AllVisitors/AllVisitors";
 import InputVisitorName from "./InputVisitorName/InputVisitorName";
 import {type} from "os";
+import {MyInput} from "../../common/renderCommonComponents/MyInput/MyInput";
+import {MyButton} from "../../common/renderCommonComponents/MyButton/MyButton";
 
 interface IVisitor {
     id: string,
@@ -33,37 +35,44 @@ const Visitors = () => {
 
     const [timeAdded, setTimeAdded] = useState(getTime())
 
+    let [error, setError] = useState<string | null>(null)
+
     function addVisitor() {
-        if (title !== "") {
+        if (title.trim() !== "") {
             const visitor = {id: v1(), title: title}
             const newVisitors = [visitor, ...visitors]
             setVisitors(newVisitors)
             setTimeAdded(getTime)
             setTitle("")
+        } else {
+            setError("Title is required")
         }
     }
 
 
-    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
-        setTitle(e.currentTarget.value)
+    const onChangeHandler = (value: string) => {
+        setTitle(value)
     }
 
     const onKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
+        setError(null)
         if (e.charCode === 13) {
             addVisitor()
         }
     }
 
     return (
-        <div className={styles.message}>
-            <div>
-                <InputVisitorName
-                    title={title}
-                    //switchButtonState={switchButtonState}
-                    onKeyPressHandler={onKeyPressHandler}
-                    //error={error}
-                    onChangeHandler={onChangeHandler}/>
-                <button onClick={addVisitor}>ADD</button>
+        <div className={styles.mainWrapper}>
+            <div className={styles.message}>
+                <div>Enter your name:</div>
+                <MyInput
+                    placeholder="Имя своё введи"
+                    value={title}
+                    error={error}
+                    onEnter={onKeyPressHandler}
+                    onChange={onChangeHandler}
+                />
+                <MyButton onClick={addVisitor} name="ADD"/>
             </div>
             {visitors.length ?
                 <div>

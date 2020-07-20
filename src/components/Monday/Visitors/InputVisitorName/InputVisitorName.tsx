@@ -11,7 +11,6 @@ const InputVisitorName = (props:PropsType) => {
 
     return (
         <div>
-            <div>Enter your name:</div>
             <input
                 type="text"
                 value={props.title}

@@ -26,6 +26,10 @@
 .inputText {
     margin: 5px;
 }
+
+.errorMessage {
+    color: red;
+}
 /*
 
 .filter-active {

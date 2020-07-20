@@ -1,39 +1,43 @@
 import React, {ChangeEvent, useState} from "react";
 import styles from "./TodoListTask.module.css";
 import {FilterValuesType} from "../../Tuesday";
-import { TaskType } from "../TodoListTasks";
+import {TaskType} from "../TodoListTasks";
+import {MyCheckbox} from "../../../common/renderCommonComponents/MyCheckbox/MyCheckbox";
+import {MyInput} from "../../../common/renderCommonComponents/MyInput/MyInput";
+import {MyButton} from "../../../common/renderCommonComponents/MyButton/MyButton";
 
 type PropsType = {
     task: TaskType
-    deleteTask: (taskId: number) => void
+    deleteTask: (taskId: string) => void
+    changeStatus: (taskId: string, isDone: boolean) => void
 }
 
-function TodoListTask (props: PropsType) {
+function TodoListTask(props: PropsType) {
 
-    let [editMode, setEditMode] = useState(false)
+   /* let [editMode, setEditMode] = useState(false)*/
 
     //let [timeBlock, setTimeBlock] = useState(false)
 
- /*   function onIsDoneChanged (e:any) {
-        this.props.changeStatus(props.task.id, e.currentTarget.checked, props.task);
-    };*/
+    /*   function onIsDoneChanged (e:any) {
+           this.props.changeStatus(props.task.id, e.currentTarget.checked, props.task);
+       };*/
 
-   /* function onTitleChanged (e:any) {
-        props.changeTitle(props.task.id, e.currentTarget.value);
-    };*/
+    /* function onTitleChanged (e:any) {
+         props.changeTitle(props.task.id, e.currentTarget.value);
+     };*/
 
-    function deleteThisTask () {
+    function deleteThisTask() {
         props.deleteTask(props.task.id);
     };
 
-  /*  function activateEditMode () {
-        setEditMode(true)
-    };
-*/
-    function deactivateEditMode () {
+    /*  function activateEditMode () {
+          setEditMode(true)
+      };
+  */
+   /* function deactivateEditMode() {
         setEditMode(false)
-      //  setTimeBlock(false)
-    }
+        //  setTimeBlock(false)
+    }*/
 
     /*function showBlockTime () {
         setTimeBlock(true)
@@ -47,62 +51,37 @@ function TodoListTask (props: PropsType) {
         props.changePriority(props.task.id, e.currentTarget.value);
     }*/
 
-        const todoListTask = props.task.isDone === true ? styles.done : "";
-       // let blockTime = timeBlock === true ? styles.taskTime : styles.displayBlockNone;
+    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+        //let newIsDoneValue = e.currentTarget.checked
+        props.changeStatus(props.task.id, e.currentTarget.checked)
+    }
 
-        return (
-            <div className={styles.todoListTask + " " + todoListTask}>
-                <div className={styles.taskWrap}>
-                    <input
-                        type="checkbox"
-                        checked={props.task.isDone}
-                       // onChange={onIsDoneChanged}
-                    />
-                    {editMode
-                        ? <input
-                            type="text"
-                            value={props.task.title}
-                            autoFocus={true}
-                            onBlur={deactivateEditMode}
-                            //onChange={onTitleChanged}
-                        />
-                        :
-                        <div className={styles.wordWrap}
-                            /* onMouseOver={showBlockTime}
-                             onMouseOut={hideBlockTime}*/
-                             //onClick={this.activateEditMode}
-                        >
-                            {props.task.id}-{props.task.title}-priority:
-                        </div>
-                    }
-                    <div>
-                        <select
-                            className={styles.selector}
-                            //value={props.task.priority}
-                           // onChange={onPriorityChanged}
-                        >
-                            <option>high</option>
-                            <option>medium</option>
-                            <option>low</option>
-                        </select>
-                    </div>
-                    <button
-                        className={styles.deleteButton}
-                        onMouseDown={deleteThisTask}>
-                        X
-                    </button>
+    const todoListTask = props.task.isDone === true ? styles.done : "";
+    // let blockTime = timeBlock === true ? styles.taskTime : styles.displayBlockNone;
+
+    return (
+        <div className={styles.todoListTask + " " + todoListTask}>
+            <div className={styles.taskWrap}>
+                <MyCheckbox
+                    checked={props.task.isDone}
+                    onChange={onChangeHandler}
+                />
+                <span>{props.task.title}-priority:</span>
+                <div>
+                    <select
+                        className={styles.selector}
+                        //value={props.task.priority}
+                        // onChange={onPriorityChanged}
+                    >
+                        <option>high</option>
+                        <option>medium</option>
+                        <option>low</option>
+                    </select>
                 </div>
-                {/*<div className={blockTime}>
-                    <div>created:
-                        {props.task.timeAdded}
-                    </div>
-                    <div>updated:
-                        {props.task.timeUpdated}</div>
-                    <div>finished:
-                        {props.task.timeFinished}</div>
-                </div>*/}
+            <MyButton onClick={deleteThisTask} name="X"/>
             </div>
-        );
+            </div>
+    );
 }
 
 export default TodoListTask;

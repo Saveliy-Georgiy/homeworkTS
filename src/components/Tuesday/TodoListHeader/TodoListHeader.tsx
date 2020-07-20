@@ -1,5 +1,7 @@
 import React, {ChangeEvent, KeyboardEvent, useState} from 'react';
 import styles from "./TodoListHeader.module.css";
+import {MyInput} from "../../common/renderCommonComponents/MyInput/MyInput";
+import {MyButton} from "../../common/renderCommonComponents/MyButton/MyButton";
 
 type PropsType = {
     addTask: (newText: string) => void
@@ -7,60 +9,42 @@ type PropsType = {
 
 function TodoListHeader(props: PropsType) {
 
-    let [isDisabled, setIsDisabled] = useState(true)
-
-    let [error, setError] = useState(false)
+    let [error, setError] = useState<string | null>(null)
 
     let [title, setTitle] = useState("")
 
-    /*function switchButtonStatus () {
-        if (title === "") {
-            setIsDisabled(true)
-        } else {
-            setIsDisabled(false)
-        }
-    };*/
-
     const onAddTaskClick = () => {
-        let newTitle = title;
-        title = "";
-        props.addTask(newTitle);
-        setIsDisabled(true);
-        setError(false);
-        setTitle("");
+        if(title.trim() !=="") {
+            props.addTask(title)
+            setTitle("")
+        } else {
+            setError("Title is required")
+        }
     }
 
-    const onChangeHandler = (e:ChangeEvent<HTMLInputElement>) => {
-        setTitle(e.currentTarget.value)
+    const onChangeHandler = (value: string) => {
+        setTitle(value)
     }
 
     const onAddTaskKeyPress = (e:KeyboardEvent<HTMLInputElement>) => {
-        if (e.key === "Enter") {
+        setError(null)
+        if (e.charCode ===13) {
             onAddTaskClick();
         }
     }
-        // const {error} = this.state;
-        const inputClassname = error ? styles.error : styles.inputText;
+
         return (
             <div className={styles.TodoListHeader}>
                 <h3 className={styles.todoListHeaderTitle}>What to Learn</h3>
                 <div className={styles.todoListNewTaskForm}>
-                        <input
-                            //ref={this.newTaskTitleRef}
-                            type="text"
-                            placeholder="New task name"
-                            // onInput={}
-                            className={inputClassname}
-                            onChange={onChangeHandler}
-                            onKeyPress={onAddTaskKeyPress}
-                            value={title}
-                        />
-                    <button
-                        onClick={onAddTaskClick}
-                        disabled={isDisabled}
-                    >
-                        Add
-                    </button>
+                    <MyInput
+                        placeholder="New task name"
+                        onChange={onChangeHandler}
+                        onEnter={onAddTaskKeyPress}
+                        value={title}
+                        error={error}
+                    />
+                    <MyButton onClick={onAddTaskClick} name="ADD"/>
                 </div>
             </div>
         );

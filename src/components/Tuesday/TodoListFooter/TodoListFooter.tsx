@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import styles from "./TodoListFooter.module.css";
 import {FilterValuesType} from "../Tuesday";
+import {MyButton} from "../../common/renderCommonComponents/MyButton/MyButton";
 
 type PropsType = {
     changeFilter: (value: FilterValuesType) => void
@@ -20,9 +21,9 @@ function TodoListFooter(props: PropsType) {
         return (
             <div className={styles.todoListFooter}>
                 {!isHidden && <div>
-                    <button onClick={() => {props.changeFilter("all")}}>All</button>
-                    <button onClick={() => {props.changeFilter("active")}}>Active</button>
-                    <button onClick={() => {props.changeFilter("completed")}}>Completed</button>
+                    <MyButton onClick={() => {props.changeFilter("all")}} name="All"/>
+                    <MyButton onClick={() => {props.changeFilter("active")}} name="Active"/>
+                    <MyButton onClick={() => {props.changeFilter("completed")}} name="Completed"/>
                 </div>
                 }
                 {!isHidden && <span onClick={onHideFiltersClick}>hide</span>}

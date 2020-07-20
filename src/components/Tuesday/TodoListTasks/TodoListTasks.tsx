@@ -3,14 +3,15 @@ import styles from "./TodoListTasks.module.css";
 import TodoListTask from "./TodoListTask/TodoListTask";
 
 export type TaskType = {
-    id: number,
+    id: string,
     title: string,
     isDone: boolean
 }
 
 type PropsType = {
     tasks: Array<TaskType>
-    deleteTask: (taskId: number) => void
+    deleteTask: (taskId: string) => void
+    changeStatus: (taskId:string, isDone:boolean) => void
 }
 
 function TodoListTasks(props: PropsType) {
@@ -21,6 +22,7 @@ function TodoListTasks(props: PropsType) {
                 key={index}
                 task={task}
                 deleteTask={props.deleteTask}
+                changeStatus={props.changeStatus}
             />
         )
     });
