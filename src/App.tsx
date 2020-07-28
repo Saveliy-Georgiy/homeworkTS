@@ -1,26 +1,31 @@
 import React, {useState} from 'react';
 import './App.css';
-import Monday from "./components/Monday/Monday";
+import PreJunior from "./components/MainComponents/PreJunior/PreJunior";
 import {HashRouter, Route} from "react-router-dom";
-import Tuesday from "./components/Tuesday/Tuesday";
 import Navbar from "./components/Navbar/Navbar";
+import Junior from './components/MainComponents/Junior/Junior';
+import JuniorPlus from './components/MainComponents/JuniorPlus/JuniorPlus';
 
 const App = () => {
 
-    let [daysOfWeek, setDayOfWeek] = useState([
-            {title: "monday", link: "/monday", style: "styles.activeLink"},
-            {title: "tuesday", link: "/tuesday", style: "styles.activeLink"},
+    let [pages, setPages] = useState([
+            {title: "preJunior", link: "/preJunior", style: "styles.activeLink"},
+            {title: "Junior", link: "/junior", style: "styles.activeLink"},
+            {title: "JuniorPlus+", link: "/junior+", style: "styles.activeLink"},
         ]);
 
   return (
       <HashRouter>
           <div className="App">
-              <Navbar daysOfWeek={daysOfWeek}/>
-              <Route path="/monday"
-                     render={() => <Monday/>}/>
-              <Route path="/tuesday"
+              <Navbar pages={pages}/>
+              <Route path="/preJunior"
+                     render={() => <PreJunior/>}/>
+              <Route path="/junior"
                      render={() =>
-                         <Tuesday />}/>
+                         <Junior />}/>
+                         <Route path="/junior+"
+                     render={() =>
+                         <JuniorPlus />}/>
           </div>
       </HashRouter>
   );

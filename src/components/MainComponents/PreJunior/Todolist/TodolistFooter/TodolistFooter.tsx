@@ -1,13 +1,13 @@
 import React, {useState} from "react";
-import styles from "./TodoListFooter.module.css";
-import {FilterValuesType} from "../Tuesday";
-import {MyButton} from "../../common/renderCommonComponents/MyButton/MyButton";
+import styles from "./TodolistFooter.module.css";
+import {FilterValuesType} from "../Todolist";
+import {MyButton} from "../../../../common/MyButton/MyButton";
 
 type PropsType = {
     changeFilter: (value: FilterValuesType) => void
 }
 
-function TodoListFooter(props: PropsType) {
+function TodolistFooter(props: PropsType) {
     let [isHidden, setIsHidden] = useState(false)
 
     function onHideFiltersClick () {
@@ -32,4 +32,4 @@ function TodoListFooter(props: PropsType) {
         );
 }
 
-export default TodoListFooter;
+export default TodolistFooter;

@@ -1,18 +1,18 @@
-import React, {ChangeEvent} from 'react';
+import React from 'react';
 import styles from './NavLink.module.css';
 import {NavLink} from "react-router-dom";
-import {dayOfWeekType} from "../Navbar";
+import {PagesType} from "../Navbar";
 
 type PropsType = {
-    dayOfWeek: dayOfWeekType,
+    pages: PagesType,
     onClick: (e: any) => void
 }
 
 const Navlink = (props: PropsType) => {
     return (
         <div className={styles.item}>
-            <NavLink to={props.dayOfWeek.link} activeClassName={styles.activeLink}
-                     onClick={props.onClick}>{props.dayOfWeek.title}</NavLink>
+            <NavLink to={props.pages.link} activeClassName={styles.activeLink}
+                     onClick={props.onClick}>{props.pages.title}</NavLink>
         </div>
     )
 };

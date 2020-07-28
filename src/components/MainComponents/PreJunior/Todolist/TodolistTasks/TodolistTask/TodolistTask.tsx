@@ -1,10 +1,8 @@
-import React, {ChangeEvent, useState} from "react";
-import styles from "./TodoListTask.module.css";
-import {FilterValuesType} from "../../Tuesday";
-import {TaskType} from "../TodoListTasks";
-import {MyCheckbox} from "../../../common/renderCommonComponents/MyCheckbox/MyCheckbox";
-import {MyInput} from "../../../common/renderCommonComponents/MyInput/MyInput";
-import {MyButton} from "../../../common/renderCommonComponents/MyButton/MyButton";
+import React, {ChangeEvent} from "react";
+import styles from "./TodolistTask.module.css";
+import {TaskType} from "../TodolistTasks";
+import {MyCheckbox} from "../../../../../common/MyCheckbox/MyCheckbox";
+import {MyButton} from "../../../../../common/MyButton/MyButton";
 
 type PropsType = {
     task: TaskType
@@ -12,7 +10,7 @@ type PropsType = {
     changeStatus: (taskId: string, isDone: boolean) => void
 }
 
-function TodoListTask(props: PropsType) {
+function TodolistTask(props: PropsType) {
 
    /* let [editMode, setEditMode] = useState(false)*/
 
@@ -84,4 +82,4 @@ function TodoListTask(props: PropsType) {
     );
 }
 
-export default TodoListTask;
+export default TodolistTask;

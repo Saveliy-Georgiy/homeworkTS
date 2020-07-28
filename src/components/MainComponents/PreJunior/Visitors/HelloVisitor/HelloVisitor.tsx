@@ -1,6 +1,6 @@
-import React, {ChangeEvent, KeyboardEvent, useState} from 'react';
+import React from 'react';
 import styles from "./HelloVisitor.module.css";
-import avatar1 from "../../../../images/avatar1.jpg";
+import avatar1 from "../../../../../images/avatar1.jpg";
 
 /*type PropsType = {
     addVisitor: (title: string) => void
@@ -12,7 +12,6 @@ type PropsType = {
     timeAdded: any
 }
 const HelloVisitor = (props: PropsType) => {
-    //if(props.title) {
     return (
             <div className={styles.myName}>
                 <div className={styles.message}>
@@ -27,8 +26,6 @@ const HelloVisitor = (props: PropsType) => {
                 </div>
             </div>
             )
-    //}
-   // return null
 }
 
 export default HelloVisitor;

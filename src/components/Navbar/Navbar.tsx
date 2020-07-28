@@ -1,15 +1,15 @@
-import React, {ChangeEvent, useState} from 'react';
+import React, {useState} from 'react';
 import styles from "./Navbar.module.css";
 import Navlink from "./Navlink/NavLink";
 
-export type dayOfWeekType = {
+export type PagesType = {
     title: string,
     link: string,
     style: string
 }
 
 type PropsType = {
-    daysOfWeek: Array<dayOfWeekType>
+    pages: Array<PagesType>
 }
 
 function Navbar(props: PropsType) {
@@ -20,10 +20,10 @@ function Navbar(props: PropsType) {
         setActiveLink (e.currentTarget.textContent)
     }
 
-        let NavLinks = props.daysOfWeek.map((dayOfWeek, key) => {
+        let NavLinks = props.pages.map((pages, key) => {
             return (<Navlink
                 key={key}
-                dayOfWeek={dayOfWeek}
+                pages={pages}
                 onClick={activateLink}
             />);
         });

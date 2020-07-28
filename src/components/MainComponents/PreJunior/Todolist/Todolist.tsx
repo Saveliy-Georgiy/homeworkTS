@@ -1,13 +1,13 @@
 import React, {useState} from "react";
-import styles from "./Tuesday.module.css";
-import TodoListHeader from "./TodoListHeader/TodoListHeader";
-import TodoListTasks from "./TodoListTasks/TodoListTasks";
-import TodoListFooter from "./TodoListFooter/TodoListFooter";
+import styles from "./Todolist.module.css";
+import TodolistHeader from "./TodolistHeader/TodolistHeader";
+import TodolistTasks from "./TodolistTasks/TodolistTasks";
+import TodolistFooter from "./TodolistFooter/TodolistFooter";
 import {v1} from "uuid";
 
 export type FilterValuesType = "all" | "active" | "completed";
 
-function Tuesday () {
+function Todolist () {
 
     let [tasks, setTasks] = useState([
         {id: v1(), title: "CSS", isDone: true, priority: "low"},
@@ -62,13 +62,13 @@ function Tuesday () {
         return (
             <div>
                 <div className={styles.todoList}>
-                    <TodoListHeader addTask={addTask}/>
-                    <TodoListTasks
+                    <TodolistHeader addTask={addTask}/>
+                    <TodolistTasks
                         deleteTask={deleteTask}
                         changeStatus={changeStatus}
                         tasks={tasksForTodolist}
                     />
-                    <TodoListFooter
+                    <TodolistFooter
                         changeFilter={changeFilter}
                     />
                 </div>
@@ -76,4 +76,4 @@ function Tuesday () {
         );
 }
 
-export default Tuesday;
+export default Todolist;

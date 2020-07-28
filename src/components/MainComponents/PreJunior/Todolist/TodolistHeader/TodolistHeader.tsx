@@ -1,13 +1,13 @@
-import React, {ChangeEvent, KeyboardEvent, useState} from 'react';
-import styles from "./TodoListHeader.module.css";
-import {MyInput} from "../../common/renderCommonComponents/MyInput/MyInput";
-import {MyButton} from "../../common/renderCommonComponents/MyButton/MyButton";
+import React, {KeyboardEvent, useState} from 'react';
+import styles from "./TodolistHeader.module.css";
+import {MyInput} from "../../../../common/MyInput/MyInput";
+import {MyButton} from "../../../../common/MyButton/MyButton";
 
 type PropsType = {
     addTask: (newText: string) => void
 }
 
-function TodoListHeader(props: PropsType) {
+function TodolistHeader(props: PropsType) {
 
     let [error, setError] = useState<string | null>(null)
 
@@ -50,4 +50,4 @@ function TodoListHeader(props: PropsType) {
         );
 }
 
-export default TodoListHeader;
+export default TodolistHeader;

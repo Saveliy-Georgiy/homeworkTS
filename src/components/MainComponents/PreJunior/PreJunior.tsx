@@ -1,18 +1,18 @@
 import React, {useState} from 'react';
 import MyName from "./MyName/MyName";
-import styles from './Monday.module.css'
+import styles from './PreJunior.module.css'
 import Visitors from "./Visitors/Visitors";
-import CommonComponents from "../common/CommonComponents";
+import Todolist from "./Todolist/Todolist";
 
-const Monday = () => {
+const PreJunior = () => {
 
   return (
     <div className={styles.mainContainer}>
         <MyName name="Biryukov Saveliy-Georgiy Yurievich"/>
         <Visitors/>
-       {/* <CommonComponents/>*/}
+       <Todolist/>
     </div>
   );
 }
 
-export default Monday;
+export default PreJunior;

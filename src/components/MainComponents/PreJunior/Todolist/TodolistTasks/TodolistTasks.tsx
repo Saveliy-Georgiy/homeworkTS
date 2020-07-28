@@ -1,6 +1,6 @@
 import React from "react";
-import styles from "./TodoListTasks.module.css";
-import TodoListTask from "./TodoListTask/TodoListTask";
+import styles from "./TodolistTasks.module.css";
+import TodolistTask from "./TodolistTask/TodolistTask";
 
 export type TaskType = {
     id: string,
@@ -14,11 +14,11 @@ type PropsType = {
     changeStatus: (taskId:string, isDone:boolean) => void
 }
 
-function TodoListTasks(props: PropsType) {
+function TodolistTasks(props: PropsType) {
 
     let tasksElements = props.tasks.map((task, index) => {
         return (
-            <TodoListTask
+            <TodolistTask
                 key={index}
                 task={task}
                 deleteTask={props.deleteTask}
@@ -33,4 +33,4 @@ function TodoListTasks(props: PropsType) {
     );
 }
 
-export default TodoListTasks;
+export default TodolistTasks;

@@ -5,8 +5,8 @@ import {v1} from "uuid";
 import AllVisitors from "./AllVisitors/AllVisitors";
 import InputVisitorName from "./InputVisitorName/InputVisitorName";
 import {type} from "os";
-import {MyInput} from "../../common/renderCommonComponents/MyInput/MyInput";
-import {MyButton} from "../../common/renderCommonComponents/MyButton/MyButton";
+import {MyInput} from "../../../common/MyInput/MyInput";
+import {MyButton} from "../../../common/MyButton/MyButton";
 
 interface IVisitor {
     id: string,
