@@ -11,7 +11,7 @@ const App = () => {
     let [pages, setPages] = useState([
             {title: "preJunior", link: "/preJunior", style: "styles.activeLink"},
             {title: "Junior", link: "/junior", style: "styles.activeLink"},
-            {title: "JuniorPlus+", link: "/junior+", style: "styles.activeLink"},
+            {title: "Junior+", link: "/junior+", style: "styles.activeLink"},
         ]);
 
   return (
