@@ -14,10 +14,10 @@ type PropsType = {
 
 function Navbar(props: PropsType) {
 
-    let [activeLink, setActiveLink] = useState<string | null>("")
+    let [activeLink, setActiveLink] = useState<string>("")
 
     function activateLink (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
-        setActiveLink (e.currentTarget.textContent)
+        setActiveLink (e.currentTarget.textContent || "")
     }
 
         let NavLinks = props.pages.map((pages, key) => {
