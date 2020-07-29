@@ -14,9 +14,9 @@ type PropsType = {
 
 function Navbar(props: PropsType) {
 
-    let [activeLink, setActiveLink] = useState("")
+    let [activeLink, setActiveLink] = useState<string | null>("")
 
-    function activateLink (e:any) {
+    function activateLink (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
         setActiveLink (e.currentTarget.textContent)
     }
 

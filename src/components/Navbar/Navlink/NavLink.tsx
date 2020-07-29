@@ -5,7 +5,7 @@ import {PagesType} from "../Navbar";
 
 type PropsType = {
     pages: PagesType,
-    onClick: (e: any) => void
+    onClick: (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void
 }
 
 const Navlink = (props: PropsType) => {
