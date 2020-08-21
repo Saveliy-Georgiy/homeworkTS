@@ -6,3 +6,12 @@
     align-items: center;
     flex-wrap: nowrap;
 }
+
+.mainWrapper {
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
