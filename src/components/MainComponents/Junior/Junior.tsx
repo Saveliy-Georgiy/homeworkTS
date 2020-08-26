@@ -11,6 +11,12 @@ type StateType = {
     title: string
 }
 
+const countries = [
+    {value: "1", title: "Moscow"},
+    {value: "2", title: "Kiev"},
+    {value: "3", title: "Minsk"}
+]
+
 const Junior = () => {
 
     const [title, setTitle] = useState("я обычный спан")
@@ -44,11 +50,7 @@ const Junior = () => {
             <div>
                 <span>Choose your city</span>
             <MySelect value={selected}
-                      items={[
-                          {value: "1", title: "Moscow"},
-                          {value: "2", title: "Kiev"},
-                          {value: "3", title: "Minsk"}
-                      ]}
+                      items={countries}
                       onChange={setSelected}/>
             </div>
             <span>Please select your preferred contact method:</span>

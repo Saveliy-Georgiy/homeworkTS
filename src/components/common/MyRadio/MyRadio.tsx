@@ -31,8 +31,7 @@ export function MyRadio(props: RadioPropsType) {
                                     name={props.name}
                                     key={i.id}
                                     value={props.value}
-                                    onClick={() => {onItemClick(i.title)}}>
-                                </input>
+                                    onClick={() => {onItemClick(i.title)}}/>
                                 <span>{i.title}</span>
                             </div>
                         })
