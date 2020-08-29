@@ -16,6 +16,11 @@ const countries = [
     {value: "2", title: "Kiev"},
     {value: "3", title: "Minsk"}
 ]
+const communicationMeans = [
+    {id: v1(), title: "Email"},
+        {id: v1(), title: "Phone"},
+        {id: v1(), title: "Mail"}
+    ]
 
 const Junior = () => {
 
@@ -58,11 +63,7 @@ const Junior = () => {
                 name="contacts"
                 value={radioSelected}
                 onChange={setRadioSelected}
-                items={[
-                    {id: v1(), title: "Email"},
-                    {id: v1(), title: "Phone"},
-                    {id: v1(), title: "Mail"}
-                ]}/>
+                items={communicationMeans}/>
         </div>
     );
 }
