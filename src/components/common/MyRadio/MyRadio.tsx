@@ -25,11 +25,10 @@ export function MyRadio(props: RadioPropsType) {
                 <div>
                     {
                         props.items.map(i => {
-                            return <div>
+                            return <div key={i.id}>
                                 <input
                                     type="radio"
                                     name={props.name}
-                                    key={i.id}
                                     value={props.value}
                                     onClick={() => {onItemClick(i.title)}}/>
                                 <span>{i.title}</span>
