@@ -6,6 +6,7 @@ import {MySelect} from '../../common/MySelect/MySelect';
 import {MyRadio} from "../../common/MyRadio/MyRadio";
 import {v1} from "uuid";
 import {MyButton} from "../../common/MyButton/MyButton";
+import {initialState, PeopleType, SortPeopleUpAC} from "../../reducers/homeWorkReducer";
 
 type StateType = {
     title: string
@@ -18,9 +19,9 @@ const countries = [
 ]
 const communicationMeans = [
     {id: v1(), title: "Email"},
-        {id: v1(), title: "Phone"},
-        {id: v1(), title: "Mail"}
-    ]
+    {id: v1(), title: "Phone"},
+    {id: v1(), title: "Mail"}
+]
 
 const Junior = () => {
 
@@ -45,18 +46,30 @@ const Junior = () => {
 
     const [radioSelected, setRadioSelected] = useState("Email");
 
+    /*const [people, setPeople] = useState<Array<PeopleType>>([
+        {id: v1(), name: "Saveliy", age: 20},
+        {id: v1(), name: "Dima", age: 34},
+        {id: v1(), name: "Vanya", age: 15},
+        {id: v1(), name: "Dan", age: 45},
+        {id: v1(), name: "Zed", age: 12},
+    ])*/
+
+    const SortPeopleUp = () => {
+        SortPeopleUpAC()
+    }
+
     return (
         <div className={styles.mainContainer}>
             <div className={styles.mainWrapper}>
-            <MyEditableSpan title={title} placeholder="write something here" onChange={onChangeHandler}/>
-            <MyButton onClick={saveTitle} name="save value"/>
-            <MyButton onClick={restoreTitle} name="restore value"/>
+                <MyEditableSpan title={title} placeholder="write something here" onChange={onChangeHandler}/>
+                <MyButton onClick={saveTitle} name="save value"/>
+                <MyButton onClick={restoreTitle} name="restore value"/>
             </div>
             <div>
                 <span>Choose your city</span>
-            <MySelect value={selected}
-                      items={countries}
-                      onChange={setSelected}/>
+                <MySelect value={selected}
+                          items={countries}
+                          onChange={setSelected}/>
             </div>
             <span>Please select your preferred contact method:</span>
             <MyRadio
@@ -64,6 +77,15 @@ const Junior = () => {
                 value={radioSelected}
                 onChange={setRadioSelected}
                 items={communicationMeans}/>
+            <div>
+
+                   {initialState.people.map(p => {
+                       return <div>Name: {p.name}, age: {p.age}</div>
+                   })}
+
+                <button onChange={SortPeopleUp}>sort A-Z</button>
+                <button>sort Z-A</button>
+            </div>
         </div>
     );
 }
